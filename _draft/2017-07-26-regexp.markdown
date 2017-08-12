@@ -1,0 +1,17 @@
+---
+layout:     post
+title:      "正则表达式入门"
+subtitle:   "\"learning re the easy way\""
+date:       2017-07-26 11:42
+author:     "Haoyang"
+header-img: "img/book-bg.jpg"
+catalog:    true
+tags:
+    -re -python -web
+---
+
+>简单理解正则表达式
+
+## 介绍
+
+正则表达式的应用范围很广，比如做一个网页要设置登录系统，登录名和密码都要符合一些要求才可以注册，这个时候用正则表达式来的做判断是最简单效率最高的方法。但是之前自己学习这方面的知识不是很扎实，最近打算总结一下。

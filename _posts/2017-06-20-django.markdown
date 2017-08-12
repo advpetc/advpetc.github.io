@@ -1,0 +1,119 @@
+---
+layout:     post
+title:      "Django浅谈"
+subtitle:   "\"从项目角度谈web framework\""
+date:       2017-06-20 10:57
+author:     "Haoyang"
+header-img: "img/blackcup-bg.jpg"
+catalog:    true
+tags:
+    -Web -Django
+---
+
+## Django为何物
+
+[Django](https://www.djangoproject.com/)是在网页开发中比较常用的一个框架，主要帮助搭建一个类似MVC的workflow. 免去了很多繁琐的网页界面交互的问题，作者还特别在官网上写
+
+>The web framework for perfectionists with deadlines.
+
+意思就是为追求完美却又被迫在deadline之前完成所准备的一个工具。
+
+## 环境搭建
+
+作为[anaconda](https://www.continuum.io/Anaconda-Overview)的忠实粉丝，在Linux的操作环境中我还是在此安利一波。还记得去年用scrapy写爬虫的时候为了安装依赖走了很多弯路，由于当时使用的是[homebrew](https://brew.sh/)，brew里面并没有srcapy，于是又研究了好半天设置环境变量等遇到的种种问题，最终还是放弃了决定安装ubuntu才搞定。后来很偶然的在微信上看到了anaconda才发现自己好蠢……
+
+所以安装anaconda是为了在自己喜欢的python环境中进行开发，本文讲的内容也都是在python3的环境下开发。
+首先选择要使用的python环境，如果是anaconda启用的方法是：
+```bash
+$ source activate 'your-env-name'
+```
+然后使用pip安装django（目前最新版本是1.11.2):
+```bash
+$ pip install Django==1.11.2
+```
+检查安装：
+```python
+>>> import django
+>>> print(django.get_version())
+1.11
+```
+我比较喜欢的IDE是Jetbrain的[PyCharm CE](https://www.jetbrains.com/pycharm/)，个人认为CE已经完全满足我的需要了。
+
+然后就可以cd到自己的目录下开始创建django web app了！
+
+## 使用
+
+在自己的目录下使用指令：
+```bash
+$ django-admin startproject mysite
+```
+之后会创建一个叫mysite的文件夹，里面的东西长这样：
+```
+mysite/
+    manage.py
+    mysite/
+        __init__.py
+        settings.py
+        urls.py
+        wsgi.py
+```
+
+最有用的manage.py可以帮助你在command line中开启服务器，进入对应的python shell去测试生产的models的状况。
+
+* 启动server：
+```bash
+$ ./manage.py server
+```
+**这样默认在127.0.0.1的8000端口开启，如果想再别的地方：xxx.xxx.xxx.xxx:xxxx**
+
+* 启动shell:
+```bash
+$ ./manage.py shell
+```
+在使用自建的model时候不要忘记import:
+```python
+>>> from appName.models import YourModel1, YourModel2
+```
+
+官网上给了一个制作投票软件的非常详细的[教程](https://docs.djangoproject.com/en/1.11/intro/)，在此不多赘述。
+
+## 小tips
+
+* **在设计models的时候一定要考虑每类数据之间的关系:**
+<br>在Django中有三种数据间关系：Many-to-many, Many-to-one, one-to-one, 具体参见官方的[documentation](https://docs.djangoproject.com/en/1.11/topics/db/examples/)
+
+* **充分利用Django的URL conf：**
+Django是可以帮助自定义url pattern的，例如：
+```python
+url(
+       r'^$',
+       views.homepage,
+       name='homepage'
+   ),
+```
+>便是类似"127.0.0.1:8000/"
+
+    ```python
+url(
+       r'^(?P<voteresult_id>[0-9]+)/$',
+       views.vote,
+       name='vote'
+   )
+   ```
+>便是类似"127.0.0.1:8000/123"
+
+    <br>因此在使用GET request的时候会方便很多,不过要注意用户输入的内容如果在GET中要显示的话文本要在html中用js二次处理才可以，避免出现类似“/ \”等会混淆的字符串。
+
+* **处理HttpResponse多用render：**
+<br>这个就很直接了，为啥人家给了shortcut不用呢，使用render的时候不管是通过ajax生成的还是普通的post或者get都可以正确的反馈，节省了很多的时间。（不过前提要写好ajax😄)
+
+* **防止用户刷新界面：**
+<br>这个小tip是针对在设计前端时的一个问题，我处理的方式是在进入链接之后即刻跳转到稳定界面，只要在HTML中添加
+```html
+window.location.href = "/result/{{vote_item.id}}";
+```
+<br>类似这样的强制跳转就可以了，这也是目前我认为最简单的处理方式，当然你也可以用python的session来通过cache来判断，但是会很麻烦。
+
+以后这里还会不定期的添加小tips如果有需要
+
+-- Haoyang
