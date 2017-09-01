@@ -116,4 +116,4 @@ window.location.href = "/result/{{vote_item.id}}";
 
 以后这里还会不定期的添加小tips如果有需要
 
--- Haoyang
+--Haoyang

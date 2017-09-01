@@ -15,7 +15,8 @@ tags:
 ## 介绍
 
 最近学习了一下bash脚本的语法，感觉非常的实用，比如之前的分享的Gist中的按期备份数据库的脚本：
-<script src="https://gist.github.com/advpetc/9ec48862fa2f64ed5505cb39c47a56ec.js"></script>
+
+[Backup Scripts written in bash](https://gist.github.com/advpetc/9ec48862fa2f64ed5505cb39c47a56ec)
 
 感觉还是蛮酷的，在这里分享一下基本的语法。
 
