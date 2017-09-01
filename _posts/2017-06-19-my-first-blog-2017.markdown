@@ -7,7 +7,7 @@ author:     "Haoyang"
 header-img: "img/tree-bg.jpg"
 catalog:    true
 tags:
-    -杂
+    杂
 ---
 
 >终于开始了……！

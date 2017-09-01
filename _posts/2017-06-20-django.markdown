@@ -7,7 +7,7 @@ author:     "Haoyang"
 header-img: "img/blackcup-bg.jpg"
 catalog:    true
 tags:
-    -Web -Django
+    Web Django
 ---
 
 ## Django为何物

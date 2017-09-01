@@ -7,7 +7,7 @@ author:     "Haoyang"
 header-img: "img/blackcup-bg.jpg"
 catalog:    true
 tags:
-    -总结 -索引
+    总结 索引
 ---
 
 >总结在实习中学到的知识

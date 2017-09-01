@@ -7,7 +7,7 @@ author:     "Haoyang"
 header-img: "img/book-bg.jpg"
 catalog:    true
 tags:
-    -Python
+    Python
 ---
 
 >以下内容基于Python 3

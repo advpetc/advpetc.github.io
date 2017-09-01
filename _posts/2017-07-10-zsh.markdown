@@ -7,7 +7,7 @@ author:     "Haoyang"
 header-img: "img/book-bg.jpg"
 catalog:    true
 tags:
-    -shell
+    shell
 ---
 
 >以下基于Linux系统

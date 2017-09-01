@@ -7,7 +7,7 @@ author:     "Haoyang"
 header-img: "img/blackcup-bg.jpg"
 catalog:    true
 tags:
-    -bash -shell
+    bash shell
 ---
 
 >everything is about efficiency

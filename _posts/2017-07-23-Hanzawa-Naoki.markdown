@@ -7,7 +7,7 @@ author:     "Haoyang"
 header-img: "img/post-bg-半泽直树.jpeg"
 catalog:    true
 tags:
-    -日剧 -生活
+    日剧 生活
 ---
 
 >以下内容为个人对第一集的感受

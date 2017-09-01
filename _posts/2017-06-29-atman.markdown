@@ -7,7 +7,7 @@ author:     "Haoyang"
 header-img: "img/blackcup-bg.jpg"
 catalog:    true
 tags:
-    -生活
+    生活
 ---
 
 >仅为个人体会

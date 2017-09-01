@@ -7,7 +7,7 @@ author:     "Haoyang"
 header-img: "img/sky-bg.jpg"
 catalog:    true
 tags:
-    -生活
+    生活
 ---
 
 >也许这就是生活吧
