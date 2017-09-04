@@ -46,7 +46,10 @@ kramdown:
 
 
 # Disqus settings
-disqus_username: myblog-71jsjjncu0
+# disqus_username: myblog-71jsjjncu0
+
+# facebook_comment settings
+facebook_comment: true
 
 # Netease setttings
 netease_comment: false

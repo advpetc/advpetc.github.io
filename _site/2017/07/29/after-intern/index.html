@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="关于生活中的小事 | Peter，Web & Mobile Lover，Love programming">
+    <meta name="keywords"  content="">
+    <meta name="theme-color" content="#000000">
+
+    <title>实习学习总结 - advpetc | Advpetc Blog</title>
+
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="/pwa/manifest.json">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/img/favicon.jpg">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="http://localhost:4000/2017/07/29/after-intern/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/css/syntax.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+    <!-- gitment -->
+    <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+    <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">eXposé</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/about/">About</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/portfolio/">Portfolio</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/tags/">Tags</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    var __HuxNav__ = {
+        close: function(){
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        },
+        open: function(){
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+
+    // Bind Event
+    $toggle.addEventListener('click', function(e){
+        if ($navbar.className.indexOf('in') > 0) {
+            __HuxNav__.close()
+        }else{
+            __HuxNav__.open()
+        }
+    })
+
+    /**
+     * Since Fastclick is used to delegate 'touchstart' globally
+     * to hack 300ms delay in iOS by performing a fake 'click',
+     * Using 'e.stopPropagation' to stop 'touchstart' event from 
+     * $toggle/$collapse will break global delegation.
+     * 
+     * Instead, we use a 'e.target' filter to prevent handler
+     * added to document close HuxNav.  
+     *
+     * Also, we use 'click' instead of 'touchstart' as compromise
+     */
+    document.addEventListener('click', function(e){
+        if(e.target == $toggle) return;
+        if(e.target.className == 'icon-bar') return;
+        __HuxNav__.close();
+    })
+</script>
+
+
+    <!-- Image to hack wechat -->
+<!-- <img src="/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="/img/blackcup-bg.jpg" width="0" height="0"> -->
+
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        position: relative;
+        background-image: url('/img/blackcup-bg.jpg')
+    }
+
+    
+</style>
+<header class="intro-header" >
+    <div class="header-mask"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/#总结" title="总结">总结</a>
+                        
+                        <a class="tag" href="/tags/#索引" title="索引">索引</a>
+                        
+                    </div>
+                    <h1>实习学习总结</h1>
+                    
+                    
+                    <h2 class="subheading">"知识库扩充"</h2>
+                    
+                    <span class="meta">Posted by Haoyang on July 29, 2017</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+				<blockquote>
+  <p>总结在实习中学到的知识</p>
+</blockquote>
+
+<h2 id="引">引</h2>
+
+<p>转眼已经到了7月底，我在Atman的实习也正式告一段落。在这短短的两个月内我学到了很多有用的知识，打算分成以下几个类别来总结我学到的知识：</p>
+
+<ul>
+  <li>网络前端开发(frontend development)</li>
+  <li>网络后端开发(backend development)</li>
+  <li>机器学习(ML)</li>
+</ul>
+
+<p>结合各个领域再细分成具体的内容。</p>
+
+<h2 id="网络前端开发">网络前端开发</h2>
+
+<p>首先要说明的是前端不可能独立存在，如果没有后端提供数据处理是完全没有意义的。我做的是一个web app，目的是为了与人交互然后基于交互目的得到用户想看到的结果。前端在这个部分是直接面向用户的，所以很多时候并不是仅仅靠编程就可以，还要学会构建用户交互逻辑，这个部分更加重要。</p>
+
+<p><strong>HTML, JS, jQuery</strong></p>
+
+<p>前端主要的代码都是由这两部分构成的，html负责显示，js负责逻辑。比如要设计一个向上回到顶部的按钮：</p>
+
+<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;a</span> <span class="na">id=</span><span class="s">"back-to-top"</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">role=</span><span class="s">"button"</span><span class="nt">&gt;</span>Top<span class="nt">&lt;/a&gt;</span>
+</code></pre>
+</div>
+
+<p>只用HTML是完全可以做到的，但是在用户看来这只是一个没有任何颜色，只有一行字Top的一个超链接，用户体验十分不好，于是我们添加这些：</p>
+
+<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;a</span> <span class="na">id=</span><span class="s">"back-to-top"</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"btn btn-primary btn-lg back-to-top pull-right"</span> <span class="na">role=</span><span class="s">"button"</span> <span class="na">data-toggle=</span><span class="s">"tooltip"</span>
+   <span class="na">data-placement=</span><span class="s">"right"</span><span class="nt">&gt;&lt;span</span> <span class="na">class=</span><span class="s">"glyphicon glyphicon-chevron-up"</span><span class="nt">&gt;&lt;/span&gt;&lt;/a&gt;</span>
+</code></pre>
+</div>
+
+<p>这就变成了一个有颜色和字体的按钮，但是还是不够，我想让它在指定的位置出现而不是一直干扰用户的视线，于是我们就要给它添加一些逻辑：</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
+    <span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="nx">$</span><span class="p">(</span><span class="nb">window</span><span class="p">).</span><span class="nx">scroll</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">scrollTop</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">50</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nx">$</span><span class="p">(</span><span class="s1">'#back-to-top'</span><span class="p">).</span><span class="nx">fadeIn</span><span class="p">();</span>
+            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                <span class="nx">$</span><span class="p">(</span><span class="s1">'#back-to-top'</span><span class="p">).</span><span class="nx">fadeOut</span><span class="p">();</span>
+            <span class="p">}</span>
+
+
+        <span class="p">});</span>
+        <span class="c1">// scroll body to 0px on click</span>
+        <span class="nx">$</span><span class="p">(</span><span class="s1">'#back-to-top'</span><span class="p">).</span><span class="nx">click</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+            <span class="nx">$</span><span class="p">(</span><span class="s1">'#back-to-top'</span><span class="p">).</span><span class="nx">tooltip</span><span class="p">(</span><span class="s1">'hide'</span><span class="p">);</span>
+            <span class="nx">$</span><span class="p">(</span><span class="s1">'body,html'</span><span class="p">).</span><span class="nx">animate</span><span class="p">({</span>
+                <span class="na">scrollTop</span><span class="p">:</span> <span class="mi">0</span>
+            <span class="p">},</span> <span class="mi">800</span><span class="p">);</span>
+            <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+        <span class="p">});</span>
+
+        <span class="nx">$</span><span class="p">(</span><span class="s1">'#back-to-top'</span><span class="p">).</span><span class="nx">tooltip</span><span class="p">(</span><span class="s1">'show'</span><span class="p">);</span>
+
+    <span class="p">});</span>
+
+<span class="o">&lt;</span><span class="sr">/script</span><span class="err">&gt;
+</span></code></pre>
+</div>
+
+<p>这里使用jQuery的原因由很多，其中就有它可以很好的调用一些函数例如<em>scroll</em>和<em>click</em>。在实际中我也更加倾向于使用jQuery，简单明了，填充了js本来没有的函数。这里干的事情就是在大于50px的时候显示这个按钮，反之消失，同时在点按的时候加了动画效果。</p>
+
+<p><strong>一些资源分享</strong></p>
+
+<ul>
+  <li><a href="http://getbootstrap.com/">Bootstrap</a>，现在已经出到第四个版本了，是很棒的基本前端控件的平台。可以本地现在源码，也可以直接用CDN，目前应该还没有被禁。</li>
+  <li><a href="https://bootsnipp.com/">Bootsnipp</a>，这个是和Bootstrap一起使用的。假如在设计的时候没有好的想法可以从这里找别人写的snipp来模仿，非常有用。</li>
+  <li><a href="https://jquery.com/">jQuery</a>，这个就不用多说了，我认为最有必要学习的一个前端的语言。下载支持源码也可以用CDN，官网上的google（疑似被墙）microsoft的都可以用。</li>
+  <li><a href="https://vuejs.org/">Vue.js</a>，如果有时间的话可以用Vue代替js，也是个很好的选择。Vue自己是个js的框架，所以不要盲目使用，要结合自己的需求来做判断。Vue弱化了对js的要求，所以如果你对js不是很熟悉可以从Vue开始熟悉。</li>
+  <li><a href="https://getmdl.io/">Material Design</a>，这个是Google强推的一个前端设计理念，现在开源了css和js，配合Bootstrap一起用可以提高自己的b格很多。同时也看到有人专门做了相辅相成的<a href="https://mdbootstrap.com/">MDB</a>，如果懒得自己去设计可以参考这个，但是有部分控件是收费的。</li>
+</ul>
+
+<h2 id="网络后端开发">网络后端开发</h2>
+
+<p>把js放到前端去说的一个原因是我用的Django框架，是一个很容易上手的python框架。后端我主要用python完成，所以只是在迫不得已的情况下才会在前端加一些js的代码。在之前的post里也简单介绍过Django框架，现在再次感受到它的强大，举个例子：</p>
+
+<p>如果你想在本地跑你的app：</p>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>./manage.py runserver
+</code></pre>
+</div>
+
+<p>默认在127.0.0.1:8000，假如想在同个局域网给朋友showoff，只要在runserver后添加你的ip地址和对应的端口就可以了：</p>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>./manage.py runserver YOUR_IP_ADDRESS:PORT
+</code></pre>
+</div>
+
+<p>假如你要更改自己的model，只要在改完之后使用如下指令：</p>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>./manage.py migrate
+<span class="gp">$ </span>./manage.py makemigrations
+</code></pre>
+</div>
+<p>不再需要一个一个检查model和之前有什么区别，因为Django已经帮你比较好了，你只要按照流程更改就可以了，如果运气好直接migrate就不会用问题了。</p>
+
+<p>Django的setting.py文件相当于你的config文件，尤其的重要，部署的时候添加机器的ip到ALLOWED_DOMAIN，再设置好数据库就可以了在server上跑了（当然你要先把环境用docker设好）。Django支持的数据库真的是一大把，小学生级别的设置，很多时候填用户名和密码就可以了，剩下Django都帮你设置好了。不过在迁移数据库的时候（尤其从sqlite到postgresql）Django是把文件dump出来然后再写入，所以难免由很多migrations的问题要解决，关于迁移数据库做了一个简单的总结：</p>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>python manage.py migrate --database<span class="o">=</span>postgresql --run-syncdb
+//python manage.py dumpdata --all --indent<span class="o">=</span>4 -e auth.user -e admin.logentry -e sessions -e<span class="o">=</span>contenttypes  &gt; imtx.json
+//python manage.py dumpdata &gt; dump.json
+<span class="gp">$ </span>python manage.py loaddata imtx.json --database<span class="o">=</span>postgresql
+</code></pre>
+</div>
+
+<p>里面comment掉的是dump的两个方法，第一个是去除了一些不必要的auth，session的行，第二个是直接dump，我觉得既没有意义也总是出现migrations conflict的问题，第一个就当作一个不错的snipp记录下来吧。</p>
+
+<p>用python写后端确实轻松一些，但是还是有很多要注意的情况，比如处理url等，这些在Django的官方教程中其实都可以看到，我在这里就不重复了。</p>
+
+<p><strong>一些资源分享</strong></p>
+
+<ul>
+  <li><a href="djangoproject.com">Django</a>，官方给了一个很详细的教程，做的是一个投票系统，MVC框架在看完这个教程之后就基本了解了。</li>
+  <li><a href="https://nodejs.org/en/">Node.js</a>，这次实习我自己没有用node，不过看到别人用的时候感觉很酷，尤其是移步进程的部分非常值得学习，可以提升网页速度，这里稍微提一下debug的工具<a href="https://github.com/node-inspector/node-inspector">node-inspector</a>，用<code class="highlighter-rouge">$ npm install -g node-inspector</code>就安装好了。</li>
+  <li>关于数据库我整理了一个从备份postgres数据库的脚本，在<a href="https://gist.github.com/advpetc/9ec48862fa2f64ed5505cb39c47a56ec">Gist</a>上分享。里面需要了解以下CronTab的知识。</li>
+  <li><a href="https://www.postgresql.org/">Postgres</a>，这个数据库由有很多支持的第三方客户端，我比较喜欢的是在Mac上的<a href="http://postgresapp.com/">Posgres.app</a>，一键式的启动，不过在具体操作的时候还是用的JetBrain的<a href="https://www.jetbrains.com/datagrip/">DataGrip</a>，这里顺便提一下JetBrain免费提供学生使用，所以如果是学生强推直接升级的professional版，我用的PyCharm在升级之后发现可以直接调用数据库，非常酸爽。</li>
+</ul>
+
+<h2 id="机器学习部分">机器学习部分</h2>
+
+<p>这部分主要是我自己琢磨的比较多，在数据方面做了一些数据清理的事情。因为是NLP公司，所以在处理分词上我还做了一些事情，后来居然发现了nltk的一个bug，现在已经提交了<a href="https://github.com/nltk/nltk_data/issues/85">issue</a>，有兴趣的旁友可以看一下。在清理这部分公司用了自己的运行环境，主要使用一些自定义的schema来给不同类型的数据做测试。举一个例子：</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="k">class</span> <span class="nc">General_Tokenizer</span><span class="p">(</span><span class="n">Rule_File_Shell</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>  <span class="c"># delimiter should be singlself.exe, e char</span>
+        <span class="nb">super</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__class__</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">set_desc</span><span class="p">(</span><span class="s">'File Shell cmd: general tokenizer (same as in Moses)'</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lang</span> <span class="o">=</span> <span class="s">'en'</span>
+        <span class="k">if</span> <span class="s">'lang'</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">lang</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s">'lang'</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">exe</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">])),</span> <span class="s">'tokenizer'</span><span class="p">,</span> <span class="s">'tokenizer.perl'</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">files</span><span class="p">):</span>
+        <span class="nb">file</span> <span class="o">=</span> <span class="n">files</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">file_exist</span><span class="p">(</span><span class="nb">file</span><span class="p">)</span>
+        <span class="n">cmd</span> <span class="o">=</span> <span class="s">r"chmod 755 </span><span class="si">%</span><span class="s">s; </span><span class="si">%</span><span class="s">s -l </span><span class="si">%</span><span class="s">s &lt; </span><span class="si">%</span><span class="s">s &gt; </span><span class="si">%</span><span class="s">s"</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">exe</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">exe</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">lang</span><span class="p">,</span> <span class="nb">file</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">output</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">execute_cmd</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">output</span><span class="p">]</span>
+</code></pre>
+</div>
+
+<p>这里继承了运行的Rule_File_Shell，的对象，在这里直接跑就可以了。同时在tokenize的时候调用了一个perl的脚本来进行，脚本可以在<a href="https://github.com/moses-smt/mosesdecoder/blob/master/scripts/tokenizer/tokenizer.perl">这里</a>看到。这部分的操作实际上十分简单，但是一个一定要有一个好的架构才可以把复杂的事情简单化。</p>
+
+<p>最后讲一下ML的部分。我在初步学习了一下Tensorflow和Stanford231的课之后整理了一些资源和笔记，我认为ML不是一两句话可以说清楚的，跟何况自己也是刚刚入门，就先不发表自己的拙见。</p>
+<ul>
+  <li>Computer Vision学习的路线可以参照Stanford231的课程，从环境setup开始一直到后面的KNN, Softmax, Linear Regression等等。</li>
+  <li>工具的使用也很重要，我建议使用google的Tensorflow来把自己的模型形象成一个可观的图，使用<a href="https://www.tensorflow.org/get_started/summaries_and_tensorboard">TensorBoard</a>会十分有帮助。</li>
+  <li>NLTK部分可以从<a href="https://zybuluo.com/hanbingtao/note/433855">感知器</a>开始，然后学习<a href="https://zybuluo.com/hanbingtao/note/448086">线性单元和梯度下降</a>，然后学习<a href="https://zybuluo.com/hanbingtao/note/476663">神经网络和反向传播算法</a>，然后学习<a href="https://zybuluo.com/hanbingtao/note/485480">卷积神经网络</a>，这四个其实是一个系列，讲的很清楚。还有一些神经系统相关，在这里也分享一下：
+    <ul>
+      <li><a href="http://karpathy.github.io/2015/05/21/rnn-effectiveness/">RUN</a></li>
+      <li><a href="http://www.jianshu.com/p/9dc9f41f0b29">LSTM</a></li>
+      <li><a href="https://arxiv.org/pdf/1406.1078v3.pdf">GRU</a></li>
+    </ul>
+  </li>
+</ul>
+
+<p>总之在我看来要想做好ML首先要有足够的数据，然后配合一个强有力的cpu和gpu加速就可以做成想要的东西，这部分东西我还有很多要学习的地方。</p>
+
+<h2 id="bounces-point">Bounces Point</h2>
+
+<p>好吧，这里最后说一下翻墙的事情。我用的<a href="http://www.vultr.com/">Vultr</a>，然后各位旁友想要优惠可以点击下面👇这个链接使用我的refer</p>
+
+<p><a href="https://www.vultr.com/?ref=7171668"><img src="https://www.vultr.com/media/banner_1.png" width="728" height="90" /></a></p>
+
+<p>原理其实很简单，就是在别的国家使用他们的电脑代理你的电脑，这样你的电脑的网络就相当于是他们地区的了。我建议使用日本的代理，因为离我们近而且速度很快。如果用vultr的话一个月顶多1t的流量就够了，而且这才五刀，如果没用满还是按rate计价，十分的良心。这里具体的翻墙教程请参见<a href="https://medium.com/@zoomyale/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91%E7%9A%84%E7%BB%88%E6%9E%81%E5%A7%BF%E5%8A%BF-%E5%9C%A8-vultr-vps-%E4%B8%8A%E6%90%AD%E5%BB%BA-shadowsocks-fd57c807d97e">科学上网的终极姿势-在-vultr-vps-上搭建-shadowsocks</a>这篇文章，写的超级详细，真正的小白也能看懂。</p>
+
+<p>–Haoyang</p>
+
+
+                <hr style="visibility: hidden;">
+
+                
+
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/2017/07/23/Hanzawa-Naoki/" data-toggle="tooltip" data-placement="top" title="半泽直树观感">
+                        Previous<br>
+                        <span>半泽直树观感</span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/2017/08/09/bash-scripting/" data-toggle="tooltip" data-placement="top" title="学习bash脚本">
+                        Next<br>
+                        <span>学习bash脚本</span>
+                        </a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                
+                <!-- disqus 评论框 start -->
+                <div class="comment">
+                    <div id="disqus_thread" class="disqus-thread"></div>
+                </div>
+                <!-- disqus 评论框 end -->
+                
+
+                
+                <!-- facebook commenting start -->
+                <div class="fb-comments" data-numposts="5"></div>
+                <!-- facebook comment end -->
+                
+
+                
+
+                
+            </div>
+
+    <!-- Side Catalog Container -->
+        
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+        
+
+    <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+        				
+                            
+        				
+                            
+        				
+                            
+        				
+                            
+                				<a href="/tags/#生活" title="生活" rel="6">
+                                    生活
+                                </a>
+                            
+        				
+                            
+        				
+                            
+                				<a href="/tags/#shell" title="shell" rel="2">
+                                    shell
+                                </a>
+                            
+        				
+                            
+        				
+                            
+        				
+                            
+        				
+                            
+        				
+        			</div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+                    
+                </ul>
+                
+            </div>
+        </div>
+    </div>
+
+</article>
+
+
+
+
+
+
+
+
+<!-- disqus 公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = "myblog-71jsjjncu0";
+    var disqus_identifier = "/2017/07/29/after-intern";
+    var disqus_url = "http://localhost:4000/2017/07/29/after-intern/";
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<!-- disqus 公共JS代码 end -->
+
+
+
+<!-- facebook commenting -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.10";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<!-- facebook commenting end -->
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("//cdnjs.cloudflare.com/ajax/libs/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'always',
+          placement: 'right',
+          icon: '#'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+
+
+
+
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+                    <li>
+                        <a href="/feed.xml">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+
+                    <!-- add Weibo, Zhihu by Hux, add target = "_blank" to <a> by Hux -->
+                    
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/peter-chen-86">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+
+
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/advpetc">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://www.linkedin.com/in/haoyang-chen-113424ab">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; eXposé 2017
+                    <br>
+                    <!-- Theme by <a href="http://huangxuan.me">Hux</a> | -->
+                    <!-- <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="100px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=huxpro&repo=huxpro.github.io&type=star&count=true" >
+                    </iframe> -->
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js "></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js "></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js "></script>
+
+<!-- Service Worker -->
+
+<script type="text/javascript">
+    if(navigator.serviceWorker){
+        // For security reasons, a service worker can only control the pages that are in the same directory level or below it. That's why we put sw.js at ROOT level.
+        navigator.serviceWorker
+            .register('/sw.js')
+            .then((registration) => {console.log('Service Worker Registered. ', registration)})
+            .catch((error) => {console.log('ServiceWorker registration failed: ', error)})
+    }
+</script>
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!--
+     Because of the native support for backtick-style fenced code blocks
+     right within the Markdown is landed in Github Pages,
+     From V1.6, There is no need for Highlight.js,
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/
+     - https://github.com/jneen/rouge/wiki/list-of-supported-languages-and-lexers
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async('/js/jquery.tagcloud.js',function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+<script>
+    // dynamic User by Hux
+    var _gaId = 'UA-101238927-1';
+    var _gaDomain = 'advpetc.me';
+
+    // Originial
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+
+<!-- Baidu Tongji -->
+
+
+
+
+<!-- Side Catalog -->
+
+<script type="text/javascript">
+    function generateCatalog (selector) {
+        var P = $('div.post-container'),a,n,t,l,i,c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#"+$(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="'+i+'" rel="nofollow">'+t+'</a>');
+            l = $('<li class="'+n+'_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;
+    }
+
+    generateCatalog(".catalog-body");
+
+    // toggle side catalog
+    $(".catalog-toggle").click((function(e){
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    /*
+     * Doc: https://github.com/davist11/jQuery-One-Page-Nav
+     * Fork by Hux to support padding
+     */
+    async("/js/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+
+
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-594a890b22538efc"></script>
+</body>
+
+</html>

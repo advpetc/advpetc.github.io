@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="关于生活中的小事 | Peter，Web & Mobile Lover，Love programming">
+    <meta name="keywords"  content="">
+    <meta name="theme-color" content="#000000">
+
+    <title>半泽直树观感 - advpetc | Advpetc Blog</title>
+
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="/pwa/manifest.json">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/img/favicon.jpg">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="http://localhost:4000/2017/07/23/Hanzawa-Naoki/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/css/syntax.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+    <!-- gitment -->
+    <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+    <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">eXposé</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/about/">About</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/portfolio/">Portfolio</a>
+                    </li>
+                    
+                    <li>
+                        <a href="/tags/">Tags</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    var __HuxNav__ = {
+        close: function(){
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        },
+        open: function(){
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+
+    // Bind Event
+    $toggle.addEventListener('click', function(e){
+        if ($navbar.className.indexOf('in') > 0) {
+            __HuxNav__.close()
+        }else{
+            __HuxNav__.open()
+        }
+    })
+
+    /**
+     * Since Fastclick is used to delegate 'touchstart' globally
+     * to hack 300ms delay in iOS by performing a fake 'click',
+     * Using 'e.stopPropagation' to stop 'touchstart' event from 
+     * $toggle/$collapse will break global delegation.
+     * 
+     * Instead, we use a 'e.target' filter to prevent handler
+     * added to document close HuxNav.  
+     *
+     * Also, we use 'click' instead of 'touchstart' as compromise
+     */
+    document.addEventListener('click', function(e){
+        if(e.target == $toggle) return;
+        if(e.target.className == 'icon-bar') return;
+        __HuxNav__.close();
+    })
+</script>
+
+
+    <!-- Image to hack wechat -->
+<!-- <img src="/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="/img/post-bg-半泽直树.jpeg" width="0" height="0"> -->
+
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        position: relative;
+        background-image: url('/img/post-bg-半泽直树.jpeg')
+    }
+
+    
+</style>
+<header class="intro-header" >
+    <div class="header-mask"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/#日剧" title="日剧">日剧</a>
+                        
+                        <a class="tag" href="/tags/#生活" title="生活">生活</a>
+                        
+                    </div>
+                    <h1>半泽直树观感</h1>
+                    
+                    
+                    <h2 class="subheading">"我对人性本质的理解 "</h2>
+                    
+                    <span class="meta">Posted by Haoyang on July 23, 2017</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+				<blockquote>
+  <p>以下内容为个人对第一集的感受</p>
+</blockquote>
+
+<h2 id="声明">声明</h2>
+
+<p>首先想说的是这部日剧我并没有看完，只是刚刚开始，但是尽管这样我还是有很多想分享的内容，对于人性的问题我有了一些更加深刻的理解，为了防止自己忘掉，我希望在这个post里分享和记录我的观点。在我的思考更加成熟的时候，如果有机会我想我会再更新这个post。</p>
+
+<p>我是从<em>Legal High</em>里的逗逼律师<em>古美门 研介</em>中认识的堺雅人，对于他的人设我十分喜欢，后来便知道了<em>半泽直树</em>这个经典作品。关于<em>人</em>的思考我想对我来说是一个很重要的事情，半泽直树在这个地方刻画的十分到位。我并不想去评价一部电视剧，因为那样会给人高高在上的感觉，更多的我想去理解它，然后沉淀成我自己的东西。</p>
+
+<h2 id="半泽直树">半泽直树</h2>
+
+<p>半泽直树的父亲<em>半泽慎之助</em>由于无法继续从<em>产业中央银行</em>继续贷款维持自己的<em>半泽螺丝</em>工厂而自杀，当时年幼的半泽直树便下定决心要在长大后为父亲讨回公道。在经过自己的努力之后成功进入了<em>东京产业中央银行</em>（原产业中央银行），背负着自己的信念与对人性的理解成功进入其中最大的分支银行<em>大阪西分行</em>。然而在一次欺诈贷款事件中，半泽直树被分行行长<em>浅野匡</em>陷害成为替罪羊，被要求负责所有的损失，如果无法追回五亿元的损失便会被“流放”。具体的细节我并不打算在这里描述，但是其中的思考在这里分享。</p>
+
+<p><strong>在进入银行系统之后，半泽直树一直是抱着“人性本善”的思维去处理事情。</strong>
+<br />我个人是很赞同这个思维的本身，因为我不想相信人的恶与不完美。但是在赞同它的同时我也想反思，如果人都是善的，那么为什么还会有类似像浅野匡这样的人出现呢？
+<br />也许这个思维的应用是有局限性的，不能一概而论。在很多电影和电视剧中其实我们对于结局本身并不是很在乎，无非是好人在经历了很多坎坷和挫折之后最终成功，坏人经历了所谓的成功的喜悦之后最终失败或者改变自己成为了好人。换一个角度来想，这是不是一种道德绑架呢？本善的缘由是因为善可以带给人所谓的成功，然后通过这种成功来帮助建立一个更加完善的社会吗？社会这个词可能在这里显得有些突兀，但是我想结合半泽直树对于他做的事情的目的做一个联系，我想半泽直树所认为的优秀的人是通过自己手中的资源来帮助那些社会上<em>理应得到帮助的人</em>，正如他帮助命垂一线的<em>牧野精机</em>一样。但是真的理应是这样的吗？我的认为是：是，但不完全。回想一下生活中的很多小事，尤其在中国。我每天去单位都是坐公车，由于路程比较远，加上出发的事件也比较早，如果车上有座位我肯定会去坐的。但是作为“龙的传人”，我们有一个“美德”，便是把座位让给老人，妇女和儿童。于是在前段时间就有上班族抱怨为什么要把座位让给那些每天闲来无事出来免费坐公交车的老人，难道座位不应该更加给那些“需要帮助”的人吗？这件事情我比较有感触，尤其每次看到上车的老人我都会考虑到这个问题，但是我最后还是会选择让座。但是有些时候我不太理解为什么我让完座位这些老人却并没有表示感谢，难道是她们认为自己本身就应该占有那些座位吗？得出这个疑问的同时我其实是很厌恶的，因为这无非是怀疑了之前我认为“人性本善”的观点。那么这些老人真的是所谓的“恶”吗？我并不这么认为，她们的表现如果一定要归于善与恶这两个词的话我最多可以给出一个中间的答案，因为人性并没有那么简单的是二分的。半泽直树在接触到了<em>通天阁</em>的<em>竹下</em>后意识到了这一点，这也是第一集的第一个转机，半泽直树对于人性的理解也变得更加完善。</p>
+
+<p><strong>浅野已经开始在总行和各种人拉好关系来把替罪羊放到你（半泽直树）的头上</strong>
+<br />这句话是半泽直树的好友<em>渡真利忍</em>在半泽直树被告知要去总行查审的时候说的一句话。渡真是在总行的融资课工作，因此有很多情报会跟半泽直树分享。对于浅野匡这个人相比较于对他的愤怒，我更多对他是可怜。我不知道剧情之后会怎么发展，但是我想他的结果不会很好。实际上，说浅野是小人是不公平的，他的处境并不是由于他对于公司的不作为导致的，反而相反，正是因为自己的求急心切把自己害了。两年来的成绩我想没有水平的行长是不会有的，然而他把自己估计的太高，最终做出了所谓“恶人”干的事情。相比较于他，我更想讨论半泽直树对于这件事情的态度。可以看出来，在开始的时候半泽直树并没有怀疑过自己的行长，只是认为行长有些急功近利导致了这种贷款欺诈的发生。我想换做我，我也不会考虑到总行审查的这一层，然而在真实的生活中却非常的常见。在得知了消息之后，半泽直树选择单独见面浅野，向他表面自己的立场，然而这个在我看来很符合逻辑的做法却不会被在复杂的人际关系中认可。有很大的风险并不是把事情处理，而是更加的激化矛盾，即使这些矛盾也许不是明面上可以看到的，但是这显然违背了半泽直树的父亲对他的期望。因此我比较不赞同他的这个做法，然而除了这种做法还有别的方式吗？难道是心平气和的讨论解决问题，即使自己心中有很多的愤怒，同时上司也不一定认真听你的想法或者直接忽略?很多时候并不是努力了就会有回报，人际关系我想也是这样，所谓的善是分场合和地点的，并不适用于所有的人。</p>
+
+<p><strong>我也想教训一下东田那混小子</strong>
+<br />这句话是竹下之后打电话和半泽直树说的，这里的<em>东田</em>便是那个欺诈贷款的罪魁祸首。半泽直树与竹下的认识也充满了戏剧性，当时由于公司的倒闭竹下正在打算上吊自杀，半泽直树冲进来之后阻止了竹下，反而是自己最后受伤了，但这也让竹下没有办法继续自杀。但是后来在得知了半泽直树作为银行雇员的身份之后，竹下立即反目为仇，拒绝与半泽直树合作来找寻东田。在被总行问审之后，竹下主动给半泽直树打了一通电话，在深入了解了半泽直树的背景之后决定与半泽直树合作。在看到这个剧情的时候我实际上是有点失望的，感觉有点为了剧情而专门设计的。但是终归这是一个转机，让半泽直树有机会证明自己的能力。从竹下的态度的转变我想这证明了“善”到底还是存在的，只不过并不是人一直会具备的。我想在本善这个结论得出一些原因中应该包括“善”会让人感受到希望，这样便给人了一种信念便是一定可以走出现在的逆境。虽然有点无缘无故，但是这一点终究是好的，善是会实实在在给一些对人有益的东西。</p>
+
+<h2 id="吐槽">吐槽</h2>
+
+<p>我不得不吐槽一些广电和各大搜素引擎（不包括google），我为什么搜索半泽直树这个关键词一个可以看<strong>详细简介</strong>的网站都没有？更不用说在线播放了，我后来是在youtube上看到了零散的上传才看了360p的第一集，实在是太憋屈了。不过我后来找到了720p的报读网盘的地址，要是想要的话请点击这里<a href="http://pan.baidu.com/s/1c2hEuWS">百度网盘资源</a>，感谢上传的朋友！</p>
+
+<p>最近这几天事情比较多也没有更新blog，不过马上实习结束我应该会更新一波。感谢支持🙏</p>
+
+<p>–Haoyang</p>
+
+
+                <hr style="visibility: hidden;">
+
+                
+
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/2017/07/16/xiaoleng/" data-toggle="tooltip" data-placement="top" title="一路平安">
+                        Previous<br>
+                        <span>一路平安</span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/2017/07/29/after-intern/" data-toggle="tooltip" data-placement="top" title="实习学习总结">
+                        Next<br>
+                        <span>实习学习总结</span>
+                        </a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                
+                <!-- disqus 评论框 start -->
+                <div class="comment">
+                    <div id="disqus_thread" class="disqus-thread"></div>
+                </div>
+                <!-- disqus 评论框 end -->
+                
+
+                
+                <!-- facebook commenting start -->
+                <div class="fb-comments" data-numposts="5"></div>
+                <!-- facebook comment end -->
+                
+
+                
+
+                
+            </div>
+
+    <!-- Side Catalog Container -->
+        
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+        
+
+    <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+        				
+                            
+        				
+                            
+        				
+                            
+        				
+                            
+                				<a href="/tags/#生活" title="生活" rel="6">
+                                    生活
+                                </a>
+                            
+        				
+                            
+        				
+                            
+                				<a href="/tags/#shell" title="shell" rel="2">
+                                    shell
+                                </a>
+                            
+        				
+                            
+        				
+                            
+        				
+                            
+        				
+                            
+        				
+        			</div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+                    
+                </ul>
+                
+            </div>
+        </div>
+    </div>
+
+</article>
+
+
+
+
+
+
+
+
+<!-- disqus 公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = "myblog-71jsjjncu0";
+    var disqus_identifier = "/2017/07/23/Hanzawa-Naoki";
+    var disqus_url = "http://localhost:4000/2017/07/23/Hanzawa-Naoki/";
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<!-- disqus 公共JS代码 end -->
+
+
+
+<!-- facebook commenting -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.10";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<!-- facebook commenting end -->
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("//cdnjs.cloudflare.com/ajax/libs/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'always',
+          placement: 'right',
+          icon: '#'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+
+
+
+
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+                    <li>
+                        <a href="/feed.xml">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+
+                    <!-- add Weibo, Zhihu by Hux, add target = "_blank" to <a> by Hux -->
+                    
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/peter-chen-86">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+
+
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/advpetc">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://www.linkedin.com/in/haoyang-chen-113424ab">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; eXposé 2017
+                    <br>
+                    <!-- Theme by <a href="http://huangxuan.me">Hux</a> | -->
+                    <!-- <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="100px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=huxpro&repo=huxpro.github.io&type=star&count=true" >
+                    </iframe> -->
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js "></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js "></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js "></script>
+
+<!-- Service Worker -->
+
+<script type="text/javascript">
+    if(navigator.serviceWorker){
+        // For security reasons, a service worker can only control the pages that are in the same directory level or below it. That's why we put sw.js at ROOT level.
+        navigator.serviceWorker
+            .register('/sw.js')
+            .then((registration) => {console.log('Service Worker Registered. ', registration)})
+            .catch((error) => {console.log('ServiceWorker registration failed: ', error)})
+    }
+</script>
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!--
+     Because of the native support for backtick-style fenced code blocks
+     right within the Markdown is landed in Github Pages,
+     From V1.6, There is no need for Highlight.js,
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/
+     - https://github.com/jneen/rouge/wiki/list-of-supported-languages-and-lexers
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async('/js/jquery.tagcloud.js',function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+<script>
+    // dynamic User by Hux
+    var _gaId = 'UA-101238927-1';
+    var _gaDomain = 'advpetc.me';
+
+    // Originial
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+
+<!-- Baidu Tongji -->
+
+
+
+
+<!-- Side Catalog -->
+
+<script type="text/javascript">
+    function generateCatalog (selector) {
+        var P = $('div.post-container'),a,n,t,l,i,c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#"+$(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="'+i+'" rel="nofollow">'+t+'</a>');
+            l = $('<li class="'+n+'_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;
+    }
+
+    generateCatalog(".catalog-body");
+
+    // toggle side catalog
+    $(".catalog-toggle").click((function(e){
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    /*
+     * Doc: https://github.com/davist11/jQuery-One-Page-Nav
+     * Fork by Hux to support padding
+     */
+    async("/js/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+
+
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-594a890b22538efc"></script>
+</body>
+
+</html>
