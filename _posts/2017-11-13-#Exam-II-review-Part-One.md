@@ -5,12 +5,12 @@ subtitle:   "\"Part I\""
 date:       2017-11-13 11:00
 author:     "Haoyang"
 header-img: "img/sky-bg.jpg"
-catalog:    false
+catalog:    true
 tags:
     iOS 总结
 ---
 
-##Gesture
+## Gesture
 1. Tap
 2. Double Tap
 3. Drag
@@ -54,7 +54,7 @@ doubleTap.numberOfTapsRequired = 2;
 [singleTap requireGestureRecognizerToFail: doubleTap];
 ```
 
-Swipe: should add left and right seperately
+Swipe: should add left and right separately
 ```objective-c
 UISwipeGestureRecognizer *swipeLeft = [[UISwipeGestureRecognizer alloc] initWithTarget:self
 action:@selector(swipeGestureRecognized:)];
@@ -67,13 +67,13 @@ swipeRight.direction = UISwipeGestureRecognizerDirectionRight;
 ```
 
 ***Selector***
-* accpet a method name
-* not explict call
+* accept a method name
+* not explicit call
 
-##Animation: Core Animation
+## Animation: Core Animation
 
 **View Properties**
-* frame (postion and size)
+* frame (position and size)
 * transform
 * alpha (transparency)
 * color
@@ -132,7 +132,7 @@ self.nameLabel.alpha = 0;
 }
 ```
 
-##Accelerometer Gyroscope
+## Accelerometer Gyroscope
 
 **Motion Events**
 * move
@@ -177,7 +177,7 @@ object:nil];
 UIDeviceOrientation currentOrientation = [[UIDevice currentDevice] orientation];
 }
 - (void)viewDidDisappear:(BOOL)animated{
-// Request to stop receiving acceleromeer events and turn off accelerometer
+// Request to stop receiving accelerometer events and turn off accelerometer
 [[NSNotificationCenter defaultCenter] removeObserver:self];
 [[UIDevice currentDevice] endGeneratingDeviceOrientationNotifications];
 }
@@ -211,7 +211,7 @@ the operation queue and the block.
 
 ## Audio
 
-**File Fomat (audio container) and Data Format (audio encoding)**
+**File Formats (audio container) and Data Format (audio encoding)**
 * AAC, HE-AAC, AMR, ALAC, iLBC, iMA4...: df
 * If space is not an issue, just encode everything with linear PCM.
   * Not only is this the fastest way for your audio to play, but you can play multiple sounds simultaneously without running into any CPU resource issues.
@@ -240,7 +240,7 @@ away with a lower bit rate.
 
 **AVAudioPlayer**
 * Play background music
-* Extremely slow: will be a noticable delay
+* Extremely slow: will be a noticeable delay
 * If play in bg, check no other sound is playing to prevent two layers of musics going at once
 * Phone call will interrupt the music
 
@@ -312,7 +312,7 @@ self.audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:soundURL error:&
 }
 ```
 
-##Delegates
+## Delegates
 
 **Protocol**
 * Is a declaration of a list of methods
@@ -347,13 +347,13 @@ Demo: or but not both
 @end
 ```
 
-##Table Views
+## Table Views
 
 1. iOS can have an unlimited # of rows
 2. iOS tables can only be one col wide
 
 **Plain Table View**
-* Row sperated into labeled sections and index appears vertically on right (index list)
+* Row seperated into labeled sections and index appears vertically on right (index list)
 * Header and footer: row are grouped, doesn't include index
 * Highlight:
   * In both styles, a table row becomes highlighted briefly when a user taps a selectable item.
@@ -396,7 +396,7 @@ return cell;
 }
 ```
 
-**Relationships btw View Contollers**
+**Relationships btw View Controllers**
 * If the relationship is a *segue*, the destination view controller is instantiated when the segue is triggered.
 * If the relationship represents *containment*, the child view controller is instantiated when its parent is instantiated.
 * If the controller is not the destination or child of another controller, it is never instantiated automatically. You must instantiate it from the storyboard programmatically.
