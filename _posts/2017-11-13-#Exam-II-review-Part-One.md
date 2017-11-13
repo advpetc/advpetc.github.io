@@ -202,6 +202,7 @@ cannot miss a single sample measurement.
 deviceMotion property of ***CMMotionManager*** with the latest refined
 measurements of accelerometer and gyroscope activity, as
 encapsulated in a ***CMDeviceMotion*** object.
+
 `startDeviceMotionUpdatesToQueue:withHandler:` – the push approach
 * Before you call this method, assign an update interval to the
 ***deviceMotionUpdateInterval*** property, create an instance of ***NSOperationQueue***, and implement a block of the ***CMDeviceMotionHandler*** type that handles the accelerometer
@@ -259,6 +260,7 @@ away with a lower bit rate.
 ```
 
 **Examples**
+
 Setup for Sound
 
 ```objective-c
@@ -327,7 +329,7 @@ self.audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:soundURL error:&
 **Three Steps Processes**
 1. In your custom class, adopt the delegate's protocol.
 2. Implement the appropriate protocol methods.
-3. Connect the `delegate`　 outlet of the delegator (i.e. textfield, tableview, etc.) to your custom class.
+3. Connect the `delegate` outlet of the delegator (i.e. textfield, tableview, etc.) to your custom class.
 
 **Summary**
 * Allowing some objects to be relatively fixed and others highly customized.
@@ -366,10 +368,10 @@ Demo: or but not both
   4. `UITableViewCellStyleValue2`: The value 2 style displays a right-aligned title in a blue font, followed on the same line by a left-aligned subtitle in a black font. Images don’t fit well in this style.
 
 **Reusing Cell**
-* When you call ‘[tableView dequeuereusablecellwithidentifier:]’ you either:
-  A. Get a cell that has previously been created and isn't currently being used
-  OR
-  B. Create a new cell of the class you specified
+* When you call `[tableView dequeuereusablecellwithidentifier:]` you either:
+    A. Get a cell that has previously been created and isn't currently being used
+    OR
+    B. Create a new cell of the class you specified
 
 **Examples**
 
