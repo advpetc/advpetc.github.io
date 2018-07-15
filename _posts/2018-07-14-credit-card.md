@@ -4,7 +4,7 @@ title:      "美国信用卡推荐"
 subtitle:   "\"Awesome credit cards in U.S.\""
 date:       2018-07-14 14:52
 author:     "Haoyang"
-header-img: "img/fabian-blank-bg.jpg"
+header-img: "img/jimi-filipovski-189724-unsplash.jpg"
 catalog:    false
 tags:
     credit-card 美国
