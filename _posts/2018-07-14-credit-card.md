@@ -1,13 +1,13 @@
 ---
 layout:     post
-title:      "美国信用卡推荐"
-subtitle:   "\"Awesome credit cards in U.S.\""
+title:      "美国各种省钱推荐"
+subtitle:   "\"Awesome money in U.S.\""
 date:       2018-07-14 14:52
 author:     "Haoyang"
 header-img: "img/jimi-filipovski-189724-unsplash.jpg"
 catalog:    false
 tags:
-    credit-card 美国
+    credit-card 美国 省钱 stock
 ---
 
 ## 为何使用信用卡
@@ -24,8 +24,13 @@ tags:
 2. [Chase Sapphire Preferred](https://creditcards.chase.com/rewards-credit-cards/chase-sapphire-preferred?CELL=6TKV)
 	* 第一年免年费，此后每年$95刀，开卡奖励50,000UR，相当于$625
 	* [Refer链接](https://www.referyourchasecard.com/6/CSMRE3WJLH)
-3. [Discover it]
+3. Discover it
 	* 0年费，是一张季度返现卡，也是被业界称为返现神卡，如果是返现王道，那么推荐使用此卡
 	* [Refer链接](https://refer.discover.com/s/ysiml)
+4. Robinhood
+    * Zero Commission的炒股软件，入市没有任何要求，非常适合懒人和短线玩股票的
+    * [Refer链接](http://share.robinhood.com/haoyanc4) <<= 使用此链接可以免费获得任何一公司的股票，官网上说
 
+    **Apple, Facebook, Microsoft**
+    You have a 1 in 150 chance of getting stock in one of these companies each time a friend signs up.
 --Haoyang
